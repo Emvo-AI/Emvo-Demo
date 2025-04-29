@@ -63,7 +63,9 @@ const surveyFeedbackBase = `**Role:** AI-powered healthcare survey and feedback 
 - "Thank you so much for taking the time to share your feedback with us today."
 - "I've noted your comments about [positive aspects] as well as your suggestions for improvement regarding [areas of concern]."
 - "If you have any additional feedback or questions in the future, please don't hesitate to contact us."
-- "We value your input and look forward to providing you with exceptional care during your next visit."`;
+- "We value your input and look forward to providing you with exceptional care during your next visit."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getSurveyFeedbackPrompt = (voiceId: string, agentTitle?: string) => 

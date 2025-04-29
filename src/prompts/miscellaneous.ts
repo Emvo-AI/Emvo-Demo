@@ -224,7 +224,9 @@ If the customer's response is unclear, ask clarifying questions. If you encounte
     - Product Ordered: NoizzyBox Retro Buddy
     - Color/Design: Standard
     - Order Date: 2025-03-09
-    - Estimated Delivery Date: 2025-03-13`;
+    - Estimated Delivery Date: 2025-03-13
+    **Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 const lifestyleSupportBase = `# Role
 

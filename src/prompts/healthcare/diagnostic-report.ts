@@ -64,7 +64,9 @@ const diagnosticReportBase = `**Role:** AI-powered diagnostic report advisor, he
 - "To summarize, we've discussed your blood test results from April 20th, particularly focusing on your hemoglobin and cholesterol levels."
 - "I've sent the full report to your email and explained the key findings."
 - "Is there anything else you'd like to know about your diagnostic reports?"
-- "Thank you for calling. If you have any other questions after reviewing your reports, please don't hesitate to reach out again."`;
+- "Thank you for calling. If you have any other questions after reviewing your reports, please don't hesitate to reach out again."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getDiagnosticReportPrompt = (voiceId: string, agentTitle?: string) => 

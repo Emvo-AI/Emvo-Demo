@@ -175,7 +175,9 @@ If the customer's response is unclear, ask clarifying questions. If you encounte
     - Route: Bengaluru to Mumbai
     - Departure Date: March Fifteenth
     - Departure Time: Ten AM
-- Seat Class: Economy`;
+- Seat Class: Economy
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 const loyaltyProgramBase = `**Role:** AI-powered aviation loyalty program specialist, helping frequent flyers manage their membership, understand program benefits, redeem points/miles, and maximize their loyalty program value.
 

@@ -56,7 +56,9 @@ const healthClaimBase = `**Role:** AI-powered insurance agent specializing in he
 - "To summarize, we've filed a new claim for your recent treatment."
 - "You'll need to submit your itemized bill and medical records to complete the process."
 - "Is there anything else I can help you with regarding your health insurance claim?"
-- "Thank you for choosing our insurance services. If you have any questions about your claim, please don't hesitate to call us back."`;
+- "Thank you for choosing our insurance services. If you have any questions about your claim, please don't hesitate to call us back."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getHealthClaimPrompt = (voiceId: string, agentTitle?: string) => 

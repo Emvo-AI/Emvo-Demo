@@ -130,7 +130,9 @@ If the customer's response is unclear, ask clarifying questions. If you encounte
     Policy Number: EA9876
     Incident: Residential property damage due to fire
     Claim Status: Approved and processing
-    Estimated Processing Time: Three to Five business days`;
+    Estimated Processing Time: Three to Five business days
+    **Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 
 // Export the function that generates the voice-specific prompt

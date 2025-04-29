@@ -3,20 +3,20 @@ import { voices } from "../config/voices";
 
 // Helper function to add voice introduction to a prompt
 const addVoiceIntro = (prompt: string, voiceId: string, agentTitle?: string): string => {
-  const voice = voices.find(v => v.id === voiceId);
-  if (!voice) return prompt;
-  
-  // Extract the name part from the voice label (e.g., "Richard" from "Richard-English")
-  const voiceName = voice.label.split('-')[0];
-  
-  // Replace [AI Agent Name] with the actual voice name
-  let promptWithName = prompt.replace(/\[AI Agent Name\]/g, voiceName);
+   const voice = voices.find(v => v.id === voiceId);
+   if (!voice) return prompt;
+
+   // Extract the name part from the voice label (e.g., "Richard" from "Richard-English")
+   const voiceName = voice.label.split('-')[0];
+
+   // Replace [AI Agent Name] with the actual voice name
+   let promptWithName = prompt.replace(/\[AI Agent Name\]/g, voiceName);
    // Add agent title if provided
    if (agentTitle) {
       promptWithName = promptWithName.replace(/\[Agent Role\]/g, agentTitle);
-    }
-  
-  return `${voice.introduction}\n\n${promptWithName}`;
+   }
+
+   return `${voice.introduction}\n\n${promptWithName}`;
 };
 
 // Base prompts without voice introductions
@@ -129,7 +129,9 @@ If the customer's response is unclear, ask clarifying questions. If you encounte
     Policy Number: EA9876
     Incident: Residential property damage due to fire
     Claim Status: Approved and processing
-    Estimated Processing Time: Three to Five business days`;
+    Estimated Processing Time: Three to Five business days
+    **Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 const healthClaimBase = `**Role:** AI-powered insurance agent specializing in health claim initiation, helping customers file and track health insurance claims, understand their benefits, and navigate the claims process.
 
@@ -193,7 +195,9 @@ const healthClaimBase = `**Role:** AI-powered insurance agent specializing in he
 - Explains insurance terminology in simple, understandable language
 - Assists with documentation requirements and submission options
 - Offers clear next steps and expectations for claim processing
-- Maintains a compassionate, patient demeanor when discussing health issues`;
+- Maintains a compassionate, patient demeanor when discussing health issues
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 const policyRenewalBase = `**Role:** AI-powered insurance agent specializing in policy renewal reminders, helping customers understand their upcoming renewals, policy changes, premium adjustments, and options for continuing or modifying their coverage.
 
@@ -258,14 +262,16 @@ const policyRenewalBase = `**Role:** AI-powered insurance agent specializing in 
 - Reviews current coverage and recommends adjustments based on customer needs
 - Identifies potential discount opportunities to maximize customer savings
 - Outlines renewal options and process steps in simple terms
-- Maintains a helpful, consultative approach throughout the conversation`;
+- Maintains a helpful, consultative approach throughout the conversation
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export functions that generate voice-specific prompts
 export const insurancePrompts = {
-  getPolicyInformationPrompt: (voiceId: string, agentTitle?: string) => 
-    addVoiceIntro(policyInformationBase, voiceId, agentTitle),
-  getHealthClaimPrompt: (voiceId: string, agentTitle?: string) => 
-    addVoiceIntro(healthClaimBase, voiceId, agentTitle),
-  getPolicyRenewalPrompt: (voiceId: string, agentTitle?: string) => 
-    addVoiceIntro(policyRenewalBase, voiceId, agentTitle)
+   getPolicyInformationPrompt: (voiceId: string, agentTitle?: string) =>
+      addVoiceIntro(policyInformationBase, voiceId, agentTitle),
+   getHealthClaimPrompt: (voiceId: string, agentTitle?: string) =>
+      addVoiceIntro(healthClaimBase, voiceId, agentTitle),
+   getPolicyRenewalPrompt: (voiceId: string, agentTitle?: string) =>
+      addVoiceIntro(policyRenewalBase, voiceId, agentTitle)
 }; 

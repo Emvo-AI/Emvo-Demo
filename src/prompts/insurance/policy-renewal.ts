@@ -55,7 +55,9 @@ const policyRenewalBase = `**Role:** AI-powered insurance agent specializing in 
 - "To summarize, your insurance policy is renewing on June 15 with a premium of $280 per month."
 - "We've discussed your coverage options and potential discounts available to you."
 - "Is there anything else you'd like to discuss about your renewal or policy?"
-- "Thank you for being a valued customer. If you have any questions before your renewal date, please don't hesitate to call us back."`;
+- "Thank you for being a valued customer. If you have any questions before your renewal date, please don't hesitate to call us back."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getPolicyRenewalPrompt = (voiceId: string, agentTitle?: string) => 

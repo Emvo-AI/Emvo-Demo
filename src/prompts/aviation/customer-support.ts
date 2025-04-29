@@ -65,7 +65,9 @@ const customerSupportBase = `**Role:** AI-powered airline customer support agent
 - "I've [changed your flight/processed your cancellation/updated the passenger name] as requested. Your new [confirmation/refund reference] number is ABC123."
 - "You'll receive a confirmation email with all the details within the next 15 minutes."
 - "Is there anything else I can assist you with regarding your booking?"
-- "Thank you for choosing our airline. We appreciate your business and look forward to welcoming you aboard soon."`;
+- "Thank you for choosing our airline. We appreciate your business and look forward to welcoming you aboard soon."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getCustomerSupportPrompt = (voiceId: string, agentTitle?: string) => 

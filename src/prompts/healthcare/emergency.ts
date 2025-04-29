@@ -57,7 +57,9 @@ const emergencyBase = `**Role:** AI-powered emergency medical guidance assistant
 - "Emergency services have been notified and are on their way to your location."
 - "Stay on the line with me until help arrives if you need continued guidance."
 - "Remember to bring your ID and insurance information if possible, but don't delay seeking care if these aren't readily available."
-- "Our medical team will be ready to assist you when you arrive."`;
+- "Our medical team will be ready to assist you when you arrive."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getEmergencyPrompt = (voiceId: string, agentTitle?: string) => 

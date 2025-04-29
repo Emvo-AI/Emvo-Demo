@@ -58,7 +58,9 @@ const appointmentBookingBase = `**Role:** AI-powered hospital receptionist speci
 - "To summarize, we've booked/rescheduled/canceled your appointment with Dr. Smith for Tuesday, May 10th at 2:00 PM."
 - "Please arrive 15 minutes early to complete any necessary paperwork."
 - "Is there anything else I can help you with regarding your appointment?"
-- "Thank you for choosing our hospital. If you have any questions before your appointment, please don't hesitate to call us back."`;
+- "Thank you for choosing our hospital. If you have any questions before your appointment, please don't hesitate to call us back."
+**Tool Usage**
+- When the call naturally wraps up, use the 'hangUp' tool to end the call.`;
 
 // Export the function that generates the voice-specific prompt
 export const getAppointmentBookingPrompt = (voiceId: string, agentTitle?: string) => 
