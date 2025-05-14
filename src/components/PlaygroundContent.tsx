@@ -42,8 +42,8 @@ interface PlaygroundContentProps {
     id: string;
     name: string;
   }>;
-  customPrompt?: string;
-  setCustomPrompt?: (prompt: string) => void;
+  customPrompt?: null | string;
+  setCustomPrompt?: (prompt: null | string) => void;
 }
 
 // Update the industries object to include agent icons
@@ -104,7 +104,10 @@ const PlaygroundContent: React.FC<PlaygroundContentProps> = ({
           {Object.entries(industries).map(([industry, data]) => (
             <button
               key={industry}
-              onClick={() => setSelectedIndustry(industry as Industry)}
+              onClick={() => {
+                setSelectedIndustry(industry as Industry);
+                setCustomPrompt(null);
+              }}
               className={`flex-shrink-0 p-3 md:p-4 rounded-lg border transition-all duration-300 min-w-[140px] md:min-w-[160px] hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 ${
                 selectedIndustry === industry
                   ? "border-purple-500 bg-purple-500/20"

@@ -217,7 +217,7 @@ const Home: React.FC = () => {
   const [selectedAgent, setSelectedAgent] = useState<string | null>(null);
   const [selectedVoice, setSelectedVoice] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
-  const [customPrompt, setCustomPrompt] = useState<string>("");
+  const [customPrompt, setCustomPrompt] = useState<null | string>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isFeedbackDialogOpen, setIsFeedbackDialogOpen] = useState(false);
 
