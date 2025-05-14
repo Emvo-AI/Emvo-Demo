@@ -1,36 +1,50 @@
-import React from 'react';
-import Image from 'next/image';
-import upcallGif from '../assets/upcall.gif';
-import { UltravoxSessionStatus } from 'ultravox-client';
+import React from "react";
+import Image from "next/image";
+import upcallGif from "../assets/upcall.gif";
+import AudioChat from "./audioChat";
+// import { UltravoxSessionStatus } from 'ultravox-client';
 
 interface CallInterfaceProps {
   agentName: string;
   onEndCall: () => void;
   suggestions: string[];
-  sessionStatus: UltravoxSessionStatus;
+  // sessionStatus: UltravoxSessionStatus;
   isLoading?: boolean;
+  selectedAgent: null | string;
+  selectedVoice: null | string;
+  selectedLanguage: null | string;
+  customPrompt: null | string;
 }
 
-const CallInterface: React.FC<CallInterfaceProps> = ({ agentName, onEndCall, suggestions, sessionStatus, isLoading }) => {
-  let statusLabel = "Idle";
-  let statusColor = "#9ca3af"; // gray-400
-  
-  if (sessionStatus === UltravoxSessionStatus.SPEAKING) {
-    statusLabel = "Speaking";
-    statusColor = "#EE7794"; // spiral-pink
-  } else if (sessionStatus === UltravoxSessionStatus.LISTENING) {
-    statusLabel = "Listening";
-    statusColor = "#9351E2"; // spiral-purple
-  } else if (sessionStatus === UltravoxSessionStatus.IDLE) {
-    statusLabel = "Idle";
-    statusColor = "#9ca3af"; // gray-400
-  }
+const CallInterface: React.FC<CallInterfaceProps> = ({
+  agentName,
+  onEndCall,
+  suggestions,
+  isLoading,
+  selectedAgent,
+  selectedVoice,
+  selectedLanguage,
+  customPrompt,
+}) => {
+  const statusLabel = "Idle";
+  // let statusColor = "#9ca3af"; // gray-400
+
+  // if (sessionStatus === UltravoxSessionStatus.SPEAKING) {
+  //   statusLabel = "Speaking";
+  //   statusColor = "#EE7794"; // spiral-pink
+  // } else if (sessionStatus === UltravoxSessionStatus.LISTENING) {
+  //   statusLabel = "Listening";
+  //   statusColor = "#9351E2"; // spiral-purple
+  // } else if (sessionStatus === UltravoxSessionStatus.IDLE) {
+  //   statusLabel = "Idle";
+  //   statusColor = "#9ca3af"; // gray-400
+  // }
 
   // Add this function to handle multiple clicks
   const handleEndCallClick = () => {
     // Disable the button to prevent multiple clicks
     if (isLoading) return;
-    
+
     // Call the onEndCall function
     onEndCall();
   };
@@ -41,23 +55,43 @@ const CallInterface: React.FC<CallInterfaceProps> = ({ agentName, onEndCall, sug
       <div className="flex flex-col md:flex-row justify-between md:items-center items-start">
         <div className="flex items-center space-x-2">
           <button className="text-purple-400">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </button>
-          <h2 className="text-lg sm:text-xl text-white">Call in progress, you have a minute🚀</h2>
+          <h2 className="text-lg sm:text-xl text-white">
+            Call in progress, you have a minute🚀
+          </h2>
         </div>
-        <button
-          onClick={handleEndCallClick}
-          disabled={isLoading}
-          className={`px-4 py-2 mt-3 md:mt-0 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full text-white hidden md:block ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-        >
-          {isLoading ? "Ending call..." : "End the call"}
-        </button>
+        <div className="flex space-x-5">
+          <AudioChat
+            selectedAgent={selectedAgent}
+            selectedVoice={selectedVoice}
+            selectedLanguage={selectedLanguage}
+            customPrompt={customPrompt}
+          />
+          <button
+            onClick={handleEndCallClick}
+            disabled={isLoading}
+            className={`px-4 py-2 mt-3 md:mt-0 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full text-white hidden md:block ${
+              isLoading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            {isLoading ? "Ending call..." : "End the call"}
+          </button>
+        </div>
       </div>
 
       <p className="text-gray-300 text-sm">
-        Talk to {agentName} in English, Hindi & 18+ launguages. Do share your name!
+        Talk to {agentName} in English, Hindi & 18+ launguages. Do share your
+        name!
       </p>
 
       <div className="flex flex-col md:flex-row gap-3">
@@ -81,19 +115,23 @@ const CallInterface: React.FC<CallInterfaceProps> = ({ agentName, onEndCall, sug
               </p>
             </div>
             <div className="text-center flex justify-center">
-            <button
-              onClick={handleEndCallClick}
-              disabled={isLoading}
-              className={`px-4 py-2 mt-3 md:mt-0 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full text-white md:hidden block ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-            >
-              {isLoading ? "Ending call..." : "End the call"}
-            </button>
+              <button
+                onClick={handleEndCallClick}
+                disabled={isLoading}
+                className={`px-4 py-2 mt-3 md:mt-0 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full text-white md:hidden block ${
+                  isLoading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                {isLoading ? "Ending call..." : "End the call"}
+              </button>
             </div>
           </div>
 
           {/* Suggestions */}
           <div className="space-y-4">
-            <h3 className="text-white text-lg font-semibold">Need something specific?</h3>
+            <h3 className="text-white text-lg font-semibold">
+              Need something specific?
+            </h3>
             <div className="space-y-2">
               {suggestions.map((suggestion, index) => (
                 <button
@@ -117,7 +155,7 @@ const CallInterface: React.FC<CallInterfaceProps> = ({ agentName, onEndCall, sug
               <span className="text-red-500 text-sm">Live</span>
             </div>
           </div>
-          
+
           <div className="h-[calc(100vh-300px)] overflow-y-auto space-y-4 custom-scrollbar">
             <div className="text-center text-gray-400 py-8">
               No live transcription available yet
@@ -129,4 +167,4 @@ const CallInterface: React.FC<CallInterfaceProps> = ({ agentName, onEndCall, sug
   );
 };
 
-export default CallInterface; 
+export default CallInterface;

@@ -11,6 +11,7 @@ const nextConfig = {
     // Similarly, you can also ignore ESLint errors during build
     ignoreDuringBuilds: true,
   },
-}
+  allowedDevOrigins: ["ngrok-free.app", "*.ngrok-free.app"],
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;
