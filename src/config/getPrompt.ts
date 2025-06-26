@@ -16,6 +16,7 @@ import {
   Mahindra_ONE_Male,
   Mahindra_ONE_Female,
   Cycle_Pure_Aggarbatti,
+  Mahindra_ONE_UAE,
 } from "@/prompts/prompts";
 
 export function getPrompt(agent: null | string, voice: null | string) {
@@ -58,6 +59,9 @@ export function getPrompt(agent: null | string, voice: null | string) {
 
     case "Cycle Pure Aggarbatti":
       return Cycle_Pure_Aggarbatti;
+
+    case "Mahindra ONE (UAE)":
+      return Mahindra_ONE_UAE;
 
     default:
       return "";

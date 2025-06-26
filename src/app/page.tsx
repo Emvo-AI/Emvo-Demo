@@ -167,6 +167,11 @@ const industries: Industries = {
         description: "",
         icon: getAgentIcon(""),
       },
+      {
+        title: "Mahindra ONE (UAE)",
+        description: "",
+        icon: getAgentIcon(""),
+      },
     ],
   },
   Custom: {
@@ -255,7 +260,13 @@ const Home: React.FC = () => {
         return;
       }
 
-      setIsDialogOpen(true);
+      setIsDialogOpen(false);
+
+      setCallState((prev) => ({
+        ...prev,
+        isActive: true,
+        agentName: selectedAgent || "",
+      }));
     }
   };
 
