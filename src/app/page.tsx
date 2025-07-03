@@ -172,6 +172,11 @@ const industries: Industries = {
         description: "",
         icon: getAgentIcon(""),
       },
+      {
+        title: "Finesse",
+        description: "",
+        icon: getAgentIcon(""),
+      }
     ],
   },
   Custom: {
