@@ -1,4 +1,4 @@
-export type Industry = "Insurance" | "Healthcare" | "Aviation" | "E-commerce" | "Miscellaneous" | "Custom";
+export type Industry = "Insurance" | "Healthcare" | "Aviation" | "E-commerce" | "Miscellaneous" | "Custom" | "Transport";
 
 export interface Transcript {
   text: string;

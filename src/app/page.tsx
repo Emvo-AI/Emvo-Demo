@@ -13,6 +13,7 @@ import healthIcon from "../assets/health.png";
 // import anjaliImage from "../assets/anjali.png";
 // import aakashImage from "../assets/aakash.png";
 import miscellaneousIcon from "../assets/miscell.png";
+import redbusIcon from "../assets/redbus.jpg";
 
 // Import agent icons
 import heartIcon from "../assets/heart.png";
@@ -48,6 +49,7 @@ type IndustryType =
   | "Aviation"
   | "E-commerce"
   | "Miscellaneous"
+  | "Transport"
   | "Custom";
 
 // type PromptFunction = (voiceId: string) => string;
@@ -177,6 +179,36 @@ const industries: Industries = {
         description: "",
         icon: getAgentIcon(""),
       }
+    ],
+  },
+  Transport: {
+    icon: redbusIcon,
+    agents: [
+      {
+        title: "Redbus - Telugu",
+        description: "",
+        icon: getAgentIcon("Customise your agent"),
+      },
+      {
+        title: "Redbus - Tamil ",
+        description: "",
+        icon: getAgentIcon("Paytm"),
+      },
+      {
+        title: "Redbus - Kannada",
+        description: "",
+        icon: getAgentIcon("Geeks"),
+      },
+      {
+        title: "Redbus - Malayalam",
+        description: "",
+        icon: getAgentIcon("Geeks"),
+      },
+      {
+        title: "Redbus - Bengali",
+        description: "",
+        icon: getAgentIcon("Geeks"),
+      },
     ],
   },
   Custom: {

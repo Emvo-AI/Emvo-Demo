@@ -18,6 +18,11 @@ import {
   Cycle_Pure_Aggarbatti,
   Mahindra_ONE_UAE,
   Finesse,
+  RedbusTelugu,
+  RedbusMalayalam,
+  RedbusKannada,
+  RedbusBengali,
+  RedbusTamil,
 } from "@/prompts/prompts";
 
 export function getPrompt(agent: null | string, voice: null | string) {
@@ -66,6 +71,21 @@ export function getPrompt(agent: null | string, voice: null | string) {
 
     case "Finesse":
       return Finesse;
+
+    case "Redbus - Telugu":
+      return RedbusTelugu;
+
+    case "Redbus - Tamil":
+      return RedbusTamil;
+
+    case "Redbus - Kannada":
+      return RedbusKannada;
+
+    case "Redbus - Malayalam":
+      return RedbusMalayalam;
+
+    case "Redbus - Bengali":
+      return RedbusBengali;
 
     default:
       return "";
