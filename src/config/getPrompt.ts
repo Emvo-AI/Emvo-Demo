@@ -23,6 +23,7 @@ import {
   RedbusKannada,
   RedbusBengali,
   RedbusTamil,
+  RedbusHinglish,
 } from "@/prompts/prompts";
 
 export function getPrompt(agent: null | string, voice: null | string) {
@@ -86,6 +87,9 @@ export function getPrompt(agent: null | string, voice: null | string) {
 
     case "Redbus - Bengali":
       return RedbusBengali;
+
+    case "Redbus - Hinglish":
+      return RedbusHinglish;
 
     default:
       return "";

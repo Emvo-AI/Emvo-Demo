@@ -185,6 +185,11 @@ const industries: Industries = {
     icon: redbusIcon,
     agents: [
       {
+        title: "Redbus - Hinglish",
+        description: "",
+        icon: getAgentIcon(""),
+      },
+      {
         title: "Redbus - Telugu",
         description: "",
         icon: getAgentIcon("Customise your agent"),
