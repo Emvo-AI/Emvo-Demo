@@ -2,7 +2,7 @@
 // import { TranscriptionService } from './transcriptionService';
 // import { pcmToWav } from './utils';
 
-const MODEL = "models/gemini-2.0-flash-exp";
+const MODEL = "models/gemini-2.0-flash-live-001";
 const API_KEY = "AIzaSyDeV3UVyt3ZTIXItV7x0W9brLzwW4CLHgQ";
 const HOST = "generativelanguage.googleapis.com";
 const WS_URL = `wss://${HOST}/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=${API_KEY}`;
@@ -128,6 +128,7 @@ export class GeminiWebSocket {
           ],
           role: "user",
         },
+        tools: [{ google_search: {} }],
       },
     };
 
