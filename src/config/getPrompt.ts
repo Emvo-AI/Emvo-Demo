@@ -24,6 +24,7 @@ import {
   RedbusBengali,
   RedbusTamil,
   RedbusHinglish,
+  AkasaAir,
 } from "@/prompts/prompts";
 
 export function getPrompt(agent: null | string, voice: null | string) {
@@ -90,6 +91,9 @@ export function getPrompt(agent: null | string, voice: null | string) {
 
     case "Redbus - Hinglish":
       return RedbusHinglish;
+
+    case "Akasa Air":
+      return AkasaAir;
 
     default:
       return "";

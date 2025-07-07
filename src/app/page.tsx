@@ -178,7 +178,12 @@ const industries: Industries = {
         title: "Finesse",
         description: "",
         icon: getAgentIcon(""),
-      }
+      },
+      {
+        title: "Akasa Air",
+        description: "",
+        icon: getAgentIcon(""),
+      },
     ],
   },
   Transport: {
